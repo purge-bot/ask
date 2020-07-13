@@ -2,13 +2,31 @@
 <html>
   <head>
     <title>Site</title>
+
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
  </head>
 
   <body>
-    <%= yield %>
+
+    <div class="header">  
+      <div class="container">
+        <div class="header-logo">
+          <h1 class="header-title"><%= link_to "Хорошие вопросы", root_path %></h1>
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
+
   </body>
 </html>
