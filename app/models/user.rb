@@ -1,7 +1,6 @@
 require 'openssl'
 
 class User < ApplicationRecord
-
   has_many :questions
 
   attr_accessor :password
@@ -26,16 +25,17 @@ class User < ApplicationRecord
     format: { with: REGEX_USERNAME},
     length: { maximum: 30, minimum: 3}
 
-  validates_presence_of :password, on: :create
-
-  validates_confirmation_of :password
+  validates :password,
+    presence: true,
+    confirmation: true,
+    on: :create
 
   def downcase_username
-    self.username = username.downcase
+    username.nil? ? username : self.username = username.downcase
   end
 
   def downcase_email
-    self.email = email.downcase
+    email.nil? ? email : self.email = email.downcase
   end
 
   def encrypt_password
