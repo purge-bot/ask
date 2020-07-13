@@ -3,12 +3,12 @@ require 'openssl'
 class User < ApplicationRecord
   has_many :questions
 
-  attr_accessor :password
-
   REGEX_USERNAME = /\A\w+\z/.freeze
   REGEX_EMAIL = /\A[\w+\-]+\@[\w+\-]+\.\w+\z/.freeze
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
+
+  attr_accessor :password
 
   before_validation :downcase_username, :downcase_email
   before_save :encrypt_password
@@ -58,5 +58,4 @@ class User < ApplicationRecord
       nil
     end
   end
-
 end
