@@ -16,9 +16,19 @@
   </h2>
 
   <div>
+     <%# Выводим количество вопросов %>
     <p>За все время, пользователю <%= @user.name %>, было задано
     <%= @questions.size %>
     <%= word_declension(@questions.size, %w[вопрос вопроса вопросов]) %>!
+    </p>
+    <br>
+    <p>Ответил на <%= amount_answered_question %>
+    <%= word_declension(amount_answered_question, %w[вопрос вопроса вопросов]) %>
+    </p>
+    <br>
+    <p>
+      Осталось дать <%= amount_unanswered_question %>
+      <%= word_declension(amount_unanswered_question, %w[ответ ответа ответов]) %>
     </p>
   </div>
 

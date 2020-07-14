@@ -16,14 +16,13 @@ class User < ApplicationRecord
   validates :email,
     presence: true,
     uniqueness: true,
-    format: { with: REGEX_EMAIL },
-    length: { maximum: 50 }
+    format: { with: REGEX_EMAIL }
 
   validates :username,
     presence: true,
     uniqueness: true,
     format: { with: REGEX_USERNAME},
-    length: { maximum: 30, minimum: 3}
+    length: { maximum: 40 }
 
   validates :password,
     presence: true,
@@ -31,11 +30,11 @@ class User < ApplicationRecord
     on: :create
 
   def downcase_username
-    username.nil? ? username : self.username = username.downcase
+    self&.username&.downcase!
   end
 
   def downcase_email
-    email.nil? ? email : self.email = email.downcase
+    self&.email&.downcase!
   end
 
   def encrypt_password
