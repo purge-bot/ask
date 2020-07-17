@@ -6,9 +6,9 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  has_many :questions
-
   attr_accessor :password
+
+  has_many :questions
 
   before_validation :downcase_username, :downcase_email
   before_save :encrypt_password
