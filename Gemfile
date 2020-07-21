@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'jquery-rails'
 gem 'webpacker', '~> 4.0'
 gem 'uglifier'
 
