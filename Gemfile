@@ -13,6 +13,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3', '~> 1.4'
+  gem 'jquery-rails'
 end
 
 group :development do
