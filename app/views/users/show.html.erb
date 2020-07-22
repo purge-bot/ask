@@ -35,14 +35,14 @@
     <div class="column-1-3">
       <p class="title-small"><%= @answers_count %>
         <br>
-      <%= word_declension(amount_answered_question, %w[ответ ответа ответов]) %>
+      <%= word_declension(@answers_count, %w[ответ ответа ответов]) %>
       </p>
     </div>
     <div class="column-1-3">
       <p class="title-small">
         <%= @unanswered_count %>
         <br>
-        <%= word_declension(amount_unanswered_question, %w[безответный безответных безответных]) %>
+        <%= word_declension(@unanswered_count, %w[безответный безответных безответных]) %>
       </p>
     </div>
   </div>
