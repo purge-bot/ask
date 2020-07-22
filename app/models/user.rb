@@ -13,6 +13,9 @@ class User < ApplicationRecord
   before_validation :downcase_username, :downcase_email
   before_save :encrypt_password
 
+  validates :name,
+    length: { maximum: 30 }
+
   validates :email,
     presence: true,
     uniqueness: true,
@@ -27,6 +30,7 @@ class User < ApplicationRecord
   validates :password,
     presence: true,
     confirmation: true,
+    length: { maximum: 50 },
     on: :create
 
   def self.hash_to_string(password_hash)

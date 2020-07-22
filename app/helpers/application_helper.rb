@@ -20,17 +20,4 @@ module ApplicationHelper
     else words[2]
     end
   end
-
-  def amount_answered_question
-    answer = 0
-
-    @questions.each do |question|
-      answer += 1 if !question.answer.nil?
-    end
-    return answer
-  end
-
-  def amount_unanswered_question
-    @questions.size - amount_answered_question
-  end
 end
