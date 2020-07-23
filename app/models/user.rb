@@ -3,7 +3,7 @@ require 'openssl'
 class User < ApplicationRecord
   REGEX_USERNAME = /\A\w+\z/.freeze
   REGEX_EMAIL = /\A[\w+\-]+\@[\w+\-]+\.\w+\z/.freeze
-  REGEX_COLOR = /\A#\w{6}\z/
+  REGEX_COLOR = /\A#[a-f0-9]{6}\z/
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
@@ -35,8 +35,7 @@ class User < ApplicationRecord
     on: :create
 
   validates :color,
-  format: { with: REGEX_COLOR }
-
+    format: { with: REGEX_COLOR }
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
