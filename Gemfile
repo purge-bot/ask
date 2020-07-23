@@ -6,9 +6,6 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'uglifier'
 gem 'jbuilder', '~> 2.7'
 gem 'rails_12factor'
-gem 'webpacker', '~> 4.0'
-gem 'jquery-rails'
-gem 'jquery-minicolors-rails'
 
 group :production do
   gem 'pg'
