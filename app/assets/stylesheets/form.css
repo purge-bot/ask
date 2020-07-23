@@ -22,6 +22,12 @@
   font-size: 16px;
 }
 
+.form-color-field {
+   margin: 0 auto;
+  border-radius: 3px;
+  margin: auto;
+}
+
 .form-action {
   margin-top: 20px;
 }
